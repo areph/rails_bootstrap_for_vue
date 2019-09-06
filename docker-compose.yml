@@ -27,22 +27,22 @@ services:
     environment:
       - "DATABASE_HOST=db"
       - "DATABASE_PORT=5432"
-      - "DATABASE_USER=postgres"
-      - "DATABASE_PASSWORD=mysecretpassword1234"
+      - "DATABASE_USER=pos_user"
+      - "DATABASE_PASSWORD=password"
     tty: true
     stdin_open: true
     links:
       - db
 
   db:
-    image: postgres
+    image: postgres:11
     volumes:
       - db-data:/var/lib/postgresql/db-data
     ports:
       - "5432:5432"
     environment:
-      - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=mysecretpassword1234"
+      - "POSTGRES_USER=pos_user"
+      - "POSTGRES_PASSWORD=password"
 
   spring:
     <<: *defaults
