@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rails6.0 & Webpacker & Vue on Docker
 
-Things you may want to cover:
+### Setup
+```
+docker-compose run --rm web bundle install
+docker-compose run --rm web rails webpacker:install
+docker-compose run --rm web rails db:create
+```
 
-* Ruby version
+### JSコンパイル
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose run --rm web bin/webpack-dev-server
+```
